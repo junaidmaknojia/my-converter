@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">ConverterApp</string>
+    <string name="value_hint">Value</string>
+
+    <string-array name="measurements">
+        <item>Length</item>
+        <item>Temperature</item>
+        <item>Weight</item>
+        <item>Volume</item>
+        <item>Currency</item>
+        <item>Energy</item>
+        <item>Speed</item>
+        <item>Pressure</item>
+    </string-array>
+
+    <string-array name="length">
+        <item>m</item>
+        <item>in</item>
+        <item>ft</item>
+        <item>yd</item>
+        <item>mi</item>
+        <item>fathom</item>
+        <item>light-year</item>
+        <item>league</item>
+        <item>nautical-league</item>
+    </string-array>
+
+    <string-array name="temperature">
+        <item>K</item>
+        <item>F</item>
+        <item>C</item>
+        <item>Rankine</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>kg</item>
+        <item>lbs</item>
+        <item>oz</item>
+        <item>ton</item>
+        <item>slug</item>
+        <item>carat</item>
+    </string-array>
+
+    <string-array name="currency">
+    </string-array>
+
+    <string-array name="speed">
+        <item>m/s</item>
+        <item>mph</item>
+        <item>km/h</item>
+        <item>ft/s</item>
+        <item>Mach</item>
+        <item>knot</item>
+    </string-array>
+
+    <string-array name="pressure">
+        <item>Pa</item>
+        <item>psi</item>
+        <item>ksi</item>
+        <item>bar</item>
+        <item>atm</item>
+        <item>N/m^2</item>
+        <item>kg/m^2</item>
+        <item>ton/ft^2</item>
+    </string-array>
+
+    <string-array name="energy">
+        <item>J</item>
+        <item>calorie</item>
+        <item>hp</item>
+        <item>kW-h</item>
+        <item>Btu</item>
+    </string-array>
+
+    <string-array name="volume">
+        <item>m^3</item>
+        <item>cm^3</item>
+        <item>in^3</item>
+        <item>mm^3</item>
+        <item>L</item>
+        <item>mL</item>
+        <item>gallon</item>
+        <item>pint</item>
+        <item>cup</item>
+        <item>quart</item>
+        <item>tbsp</item>
+        <item>tsp</item>
+        <item>fl oz</item>
+        <item>oz</item>
+    </string-array>
+
+</resources>
