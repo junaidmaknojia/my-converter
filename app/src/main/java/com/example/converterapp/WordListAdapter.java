@@ -15,10 +15,10 @@ import java.util.LinkedList;
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
 
     private LinkedList<String> mWordList = new LinkedList<String>();
-    private LinkedList<Integer> temp;
+    private LinkedList<String> temp;
     private LayoutInflater mInflater;
 
-    public WordListAdapter(Context context, LinkedList<Integer> wordList) {
+    public WordListAdapter(Context context, LinkedList<String> wordList) {
         mInflater = LayoutInflater.from(context);
         temp = wordList;
     }

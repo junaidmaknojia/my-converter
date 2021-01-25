@@ -30,8 +30,8 @@
         android:layout_marginRight="64dp"
         android:ems="10"
         android:hint="@string/value_hint"
-        android:inputType="phone"
         android:imeOptions="actionSend"
+        android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toStartOf="@+id/spinner2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />

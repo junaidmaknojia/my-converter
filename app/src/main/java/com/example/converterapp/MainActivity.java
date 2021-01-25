@@ -23,11 +23,12 @@ import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public double entry;
+    public double userEntry;
     public int selectArray;
     public String unitSelect;
     private RecyclerView mRecyclerView;
     private WordListAdapter mAdapter;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,25 +89,25 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) { }
         });
 
-        EditText editText = findViewById(R.id.entry);
+        editText = findViewById(R.id.entry);
         if (editText != null) {
             editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                        @Override
-                        public boolean onEditorAction(TextView textView, int j, KeyEvent keyEvent) {
-                        boolean mHandled = false;
-                        if (j == EditorInfo.IME_ACTION_SEND) {
-                            recycleSetup();
-                            mHandled = true;
-                        }
-                        return mHandled;
+                    @Override
+                    public boolean onEditorAction(TextView textView, int j, KeyEvent keyEvent) {
+                    boolean mHandled = false;
+                    if (j == EditorInfo.IME_ACTION_SEND) {
+                        recycleSetup();
+                        mHandled = true;
                     }
-                    // If view is found, set the listener for editText.
-                });
+                    return mHandled;
+                }
+            });
         }
     }
 
     public void recycleSetup(){
         if(findViewById(R.id.entry) != null){
+            userEntry = Double.parseDouble(editText.getText().toString());
             LinkedList<String> arr = fillTable();
             mRecyclerView = findViewById(R.id.liststuff);
             mAdapter = new WordListAdapter(this, arr);
@@ -116,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public LinkedList<String> fillTable(){
-        Calculations calc = new Calculations(unitSelect);
-        return calc.lengthConv(entry);
+        Calculations calc = new Calculations(unitSelect, userEntry);
+        return calc.lengthConv();
         //System.out.println(lengthArray); // to test what is being returned from the Calculations object
     }
 }

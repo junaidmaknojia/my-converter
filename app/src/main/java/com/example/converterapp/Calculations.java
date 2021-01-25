@@ -15,15 +15,18 @@ import java.util.LinkedList;
 
 public class Calculations{
     private String mUnit;
+    private double mEntry;
     private final LinkedList<String> mList = new LinkedList<>();
 
-    public Calculations(String unit){
+    public Calculations(String unit, double entry){
         mUnit = unit;
+        mEntry = entry;
     }
-    public LinkedList<String> lengthConv(double entry){
+    public LinkedList<String> lengthConv(){
         if(mUnit != null) {
             //double m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom;
             double[] lengthArray = null; //m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom
+            Log.i("Calculations", "inside lengthConv and entry is " + mEntry);
             switch (mUnit) {
                 case "m":
                     lengthArray = new double[]{1, 1.09361, 3.2803, 39.36996, 1.057008707E-16,
@@ -70,9 +73,11 @@ public class Calculations{
             }
             if (lengthArray != null) {
                 for (int i = 0; i < lengthArray.length; i++) {
-                    lengthArray[i] = lengthArray[i] * entry;
+                    Log.i("Calculations", "inside for loop of populating mList");
+                    lengthArray[i] = lengthArray[i] * mEntry;
                     mList.addLast(String.valueOf(lengthArray[i]));
                 }
+                Log.i("Calculations", "returning mList");
                 return mList;
             }
         }
