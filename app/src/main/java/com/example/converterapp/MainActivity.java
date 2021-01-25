@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     public String unitSelect;
     private RecyclerView mRecyclerView;
     private WordListAdapter mAdapter;
-    private LinkedList<Integer> arr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,9 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void recycleSetup(){
         if(findViewById(R.id.entry) != null){
-            System.out.println("Inside recyclesetup if statement");
-            arr = fillTable();
-            Log.d("MAINACTIVITY", "Filled the table");
+            LinkedList<String> arr = fillTable();
             mRecyclerView = findViewById(R.id.liststuff);
             mAdapter = new WordListAdapter(this, arr);
             mRecyclerView.setAdapter(mAdapter);
@@ -118,11 +115,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public LinkedList<Integer> fillTable(){
+    public LinkedList<String> fillTable(){
         Calculations calc = new Calculations(unitSelect);
-        arr = calc.lengthConv(entry);
-        System.out.println("Created arr in filltable");
+        return calc.lengthConv(entry);
         //System.out.println(lengthArray); // to test what is being returned from the Calculations object
-        return arr;
     }
 }

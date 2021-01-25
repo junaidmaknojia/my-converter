@@ -1,5 +1,6 @@
 package com.example.converterapp;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
@@ -13,13 +14,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Calculations{
-    String mUnit;
-    private final LinkedList<Integer> mList = new LinkedList<>();
+    private String mUnit;
+    private final LinkedList<String> mList = new LinkedList<>();
 
     public Calculations(String unit){
         mUnit = unit;
     }
-    public LinkedList<Integer> lengthConv(double entry){
+    public LinkedList<String> lengthConv(double entry){
         if(mUnit != null) {
             //double m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom;
             double[] lengthArray = null; //m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom
@@ -70,9 +71,8 @@ public class Calculations{
             if (lengthArray != null) {
                 for (int i = 0; i < lengthArray.length; i++) {
                     lengthArray[i] = lengthArray[i] * entry;
-                    mList.addLast((int)lengthArray[i]);
+                    mList.addLast(String.valueOf(lengthArray[i]));
                 }
-                System.out.println(mList);
                 return mList;
             }
         }
