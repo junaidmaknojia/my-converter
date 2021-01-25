@@ -13,7 +13,7 @@ import java.util.LinkedList;
 
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
 
-    private LinkedList<String> mWordList;
+    private LinkedList<String> mWordList = new LinkedList<String>();
     private LinkedList<Integer> temp;
     private LayoutInflater mInflater;
 
@@ -22,11 +22,11 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         temp = wordList;
     }
 
-    public void intToString(){
+    public LinkedList<String> intToString(){
         for(int i=0; i<temp.size(); i++) {
             mWordList.addLast(temp.get(i).toString());
         }
-        //return mWordList;
+        return mWordList;
     }
 
     @NonNull
@@ -47,7 +47,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
     @Override
     public int getItemCount() {
-        return mWordList.size();
+        return intToString().size();
     }
 
     public static class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -90,20 +90,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         EditText editText = findViewById(R.id.entry);
-        if (editText != null)
-            editText.setOnEditorActionListener
-                    (new TextView.OnEditorActionListener() {
+        if (editText != null) {
+            editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                         @Override
                         public boolean onEditorAction(TextView textView, int j, KeyEvent keyEvent) {
-                            boolean mHandled = false;
-                            if (j == EditorInfo.IME_ACTION_SEND) {
-                                recycleSetup();
-                                mHandled = true;
-                            }
-                            return mHandled;
+                        boolean mHandled = false;
+                        if (j == EditorInfo.IME_ACTION_SEND) {
+                            recycleSetup();
+                            mHandled = true;
                         }
-                        // If view is found, set the listener for editText.
-                    });
+                        return mHandled;
+                    }
+                    // If view is found, set the listener for editText.
+                });
+        }
     }
 
     public void recycleSetup(){

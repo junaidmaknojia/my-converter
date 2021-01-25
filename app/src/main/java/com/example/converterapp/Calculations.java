@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Calculations{
-    public String unit;
+    String mUnit;
     private final LinkedList<Integer> mList = new LinkedList<>();
 
-    public Calculations(String unitSelect){
-        unit = unitSelect;
+    public Calculations(String unit){
+        mUnit = unit;
     }
     public LinkedList<Integer> lengthConv(double entry){
-        if(unit != null) {
+        if(mUnit != null) {
             //double m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom;
             double[] lengthArray = null; //m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom
-            switch (unit) {
+            switch (mUnit) {
                 case "m":
                     lengthArray = new double[]{1, 1.09361, 3.2803, 39.36996, 1.057008707E-16,
                             0.00025, 0.000179986, 0.000540, 0.0006213689, 0.546807};
@@ -72,6 +72,7 @@ public class Calculations{
                     lengthArray[i] = lengthArray[i] * entry;
                     mList.addLast((int)lengthArray[i]);
                 }
+                System.out.println(mList);
                 return mList;
             }
         }
