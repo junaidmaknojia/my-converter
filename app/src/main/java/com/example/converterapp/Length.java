@@ -13,12 +13,13 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Calculations{
+public class Length {
     private String mUnit;
     private double mEntry;
     private final LinkedList<String> mList = new LinkedList<>();
+    private double[]lengthArray;
 
-    public Calculations(String unit, double entry){
+    public Length(String unit, double entry){
         mUnit = unit;
         mEntry = entry;
     }
@@ -26,7 +27,7 @@ public class Calculations{
         if(mUnit != null) {
             //double m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom;
             double[] lengthArray = null; //m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom
-            Log.i("Calculations", "inside lengthConv and entry is " + mEntry);
+            Log.i("Length", "inside lengthConv and entry is " + mEntry);
             switch (mUnit) {
                 case "m":
                     lengthArray = new double[]{1, 1.09361, 3.2803, 39.36996, 1.057008707E-16,
@@ -72,12 +73,11 @@ public class Calculations{
                     break;
             }
             if (lengthArray != null) {
+                //stringArr = findViewById()
                 for (int i = 0; i < lengthArray.length; i++) {
-                    Log.i("Calculations", "inside for loop of populating mList");
-                    lengthArray[i] = lengthArray[i] * mEntry;
-                    mList.addLast(String.valueOf(lengthArray[i]));
+                    lengthArray[i] *= mEntry;
+                    mList.add(String.valueOf(lengthArray[i]));
                 }
-                Log.i("Calculations", "returning mList");
                 return mList;
             }
         }

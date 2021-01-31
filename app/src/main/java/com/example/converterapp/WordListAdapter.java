@@ -14,7 +14,7 @@ import java.util.LinkedList;
 
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
 
-    private LinkedList<String> mWordList = new LinkedList<String>();
+    private LinkedList<String> mWordList = new LinkedList<>();
     private LinkedList<String> temp;
     private LayoutInflater mInflater;
 
@@ -25,7 +25,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
     public LinkedList<String> intToString(){
         for(int i=0; i<temp.size(); i++) {
-            mWordList.addLast(temp.get(i).toString());
+            mWordList.add(temp.get(i));
         }
         return mWordList;
     }
