@@ -1,16 +1,7 @@
 package com.example.converterapp;
 
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Length {
@@ -26,7 +17,7 @@ public class Length {
     public LinkedList<String> lengthConv(){
         if(mUnit != null) {
             //double m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom;
-            double[] lengthArray = null; //m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom
+            double[] lengthArray = null;
             Log.i("Length", "inside lengthConv and entry is " + mEntry);
             switch (mUnit) {
                 case "m":
