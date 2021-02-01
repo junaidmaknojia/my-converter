@@ -169,5 +169,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public LinkedList<String> fillTable(){
         Length length = new Length(unitSelect, userEntry);
         return length.lengthConv();
+        //add a switch to call the different class
     }
 }
