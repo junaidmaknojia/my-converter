@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     public double userEntry;
     public int selectArray;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private WordListAdapter mAdapter;
     private EditText editText;
     private Spinner measurements;
+    private Spinner units;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,77 +90,70 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.entry);
         if (editText != null) {
             editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                    @Override
-                    public boolean onEditorAction(TextView textView, int j, KeyEvent keyEvent) {
-                boolean mHandled = false;
-                if (j == EditorInfo.IME_ACTION_SEND) {
-                    recycleSetup();
-                    mHandled = true;
-                }
-                return mHandled;
+                @Override
+                public boolean onEditorAction(TextView textView, int j, KeyEvent keyEvent) {
+                    boolean mHandled = false;
+                    if (j == EditorInfo.IME_ACTION_SEND) {
+                        recycleSetup();
+                        mHandled = true;
+                    }
+                    return mHandled;
                 }
             });
         }
     }
 
-    View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            measurements.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    Spinner units = findViewById(R.id.spinner2);
-                    switch ((adapterView.getItemAtPosition(i)).toString().toLowerCase()){
-                        case "length":
-                            selectArray = R.array.length;
-                            break;
-                        case "weight":
-                            selectArray = R.array.weight;
-                            break;
-                        case "temperature":
-                            selectArray = R.array.temperature;
-                            break;
-                        case "currency":
-                            selectArray = R.array.currency;
-                            break;
-                        case "volume":
-                            selectArray = R.array.volume;
-                            break;
-                        case "pressure":
-                            selectArray = R.array.pressure;
-                            break;
-                        case "speed":
-                            selectArray = R.array.speed;
-                            break;
-                        case "energy":
-                            selectArray = R.array.energy;
-                            break;
-                        default:
-                    }
-                    ArrayAdapter<CharSequence> jAdapter = ArrayAdapter.createFromResource(MainActivity.this,
-                            selectArray, android.R.layout.simple_spinner_item);
-                    jAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    units.setAdapter(jAdapter);
-
-                    units.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                            unitSelect = (String) adapterView.getItemAtPosition(i);
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> adapterView) { }
-                    });
+    public void onClick(View v) {
+        units = findViewById(R.id.spinner2);
+        measurements.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch ((adapterView.getItemAtPosition(i)).toString().toLowerCase()){
+                    case "length":
+                        selectArray = R.array.length;
+                        break;
+                    case "weight":
+                        selectArray = R.array.weight;
+                        break;
+                    case "temperature":
+                        selectArray = R.array.temperature;
+                        break;
+                    case "currency":
+                        selectArray = R.array.currency;
+                        break;
+                    case "volume":
+                        selectArray = R.array.volume;
+                        break;
+                    case "pressure":
+                        selectArray = R.array.pressure;
+                        break;
+                    case "speed":
+                        selectArray = R.array.speed;
+                        break;
+                    case "energy":
+                        selectArray = R.array.energy;
+                        break;
+                    default:
                 }
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) { }
-            });
-        }
-    };
+                ArrayAdapter<CharSequence> jAdapter = ArrayAdapter.createFromResource(MainActivity.this,
+                        selectArray, android.R.layout.simple_spinner_item);
+                jAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                units.setAdapter(jAdapter);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
 
+        units.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                unitSelect = (String) adapterView.getItemAtPosition(i);
+            }
 
-
-
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+    }
 
     public void recycleSetup(){
         if(findViewById(R.id.entry) != null){
