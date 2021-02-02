@@ -10,8 +10,15 @@ public class Processor {
     private String mUnit;
     private double mEntry;
     private String type;
-    private Class<Object> classType;
     private LinkedList<String> hermes;
+    private Length length;
+    private Weight weight;
+    private Temperature temp;
+    private Currency curr;
+    private Volume volume;
+    private Pressure press;
+    private Speed speed;
+    private Energy energy;
 
     public Processor(String unit, double entry){
 //        mUnit = unit;
@@ -20,35 +27,42 @@ public class Processor {
     }
 
     public void selectedUnit(String unit){
+
         switch (type){
             case "length":
-                classType = new Length(unit, mEntry);
+                length = new Length(unit, mEntry);
+                hermes = length.lengthConv();
                 break;
             case "weight":
-                classType = new Weight(unit, mEntry);
+                weight = new Weight(unit, mEntry);
+                hermes = weight.weightConv();
                 break;
             case "temperature":
-                classType = new Temperature(unit, mEntry);
+                temp = new Temperature(unit, mEntry);
+                hermes = temp.tempConv();
                 break;
             case "currency":
-                classType = new Currency(unit, mEntry);
+                curr = new Currency(unit, mEntry);
+                hermes = curr.currConv();
                 break;
             case "volume":
-                classType = new Volume(unit, mEntry);
+                volume = new Volume(unit, mEntry);
+                hermes = volume.volConv();
                 break;
             case "pressure":
-                classType = new Pressure(unit, mEntry);
+                press = new Pressure(unit, mEntry);
+                hermes = press.pressConv();
                 break;
             case "speed":
-                classType = new Speed(unit, mEntry);
+                speed = new Speed(unit, mEntry);
+                hermes = speed.speedConv();
                 break;
             case "energy":
-                classType = new Energy(unit, mEntry);
+                energy = new Energy(unit, mEntry);
+                hermes = energy.energyConv();
                 break;
             default:
         }
-
-        hermes = classType.conv();
     }
 
     public void selectMeasurement(){

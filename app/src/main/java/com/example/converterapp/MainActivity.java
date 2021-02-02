@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                         unitSelect = (String) adapterView.getItemAtPosition(i);
-                        Processor processor = new Processor(unitSelect, editText);
+                        Processor processor = new Processor(unitSelect, userEntry);
                     }
 
                     @Override
@@ -168,8 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public LinkedList<String> fillTable(){
-        Length length = new Length(unitSelect, userEntry);
-        return length.lengthConv();
+//        Length length = new Length(unitSelect, userEntry);
+//        return length.lengthConv();
         //add a switch to call the different class
+
     }
 }

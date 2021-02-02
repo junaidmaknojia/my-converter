@@ -14,7 +14,7 @@ public class Length {
         mUnit = unit;
         mEntry = entry;
     }
-    public LinkedList<String> conv(){
+    public LinkedList<String> lengthConv(){
         if(mUnit != null) {
             //double m, yd, ft, in, lightyear, league, nleague, nmile, mile, fathom;
             double[] lengthArray = null;
