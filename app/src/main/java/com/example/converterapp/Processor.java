@@ -10,10 +10,10 @@ public class Processor {
     private String mUnit;
     private double mEntry;
     private String type;
-    private Length classType;
+    private Class<Object> classType;
     private LinkedList<String> hermes;
 
-    public Processor(){
+    public Processor(String unit, double entry){
 //        mUnit = unit;
 //        mEntry = entry;
 //        type = measurement;
@@ -22,32 +22,33 @@ public class Processor {
     public void selectedUnit(String unit){
         switch (type){
             case "length":
-                classType = new Length(mUnit, mEntry);
-                hermes = classType.lengthConv();
+                classType = new Length(unit, mEntry);
                 break;
             case "weight":
-                selectArray = R.array.weight;
+                classType = new Weight(unit, mEntry);
                 break;
             case "temperature":
-                selectArray = R.array.temperature;
+                classType = new Temperature(unit, mEntry);
                 break;
             case "currency":
-                selectArray = R.array.currency;
+                classType = new Currency(unit, mEntry);
                 break;
             case "volume":
-                selectArray = R.array.volume;
+                classType = new Volume(unit, mEntry);
                 break;
             case "pressure":
-                selectArray = R.array.pressure;
+                classType = new Pressure(unit, mEntry);
                 break;
             case "speed":
-                selectArray = R.array.speed;
+                classType = new Speed(unit, mEntry);
                 break;
             case "energy":
-                selectArray = R.array.energy;
+                classType = new Energy(unit, mEntry);
                 break;
             default:
         }
+
+        hermes = classType.conv();
     }
 
     public void selectMeasurement(){

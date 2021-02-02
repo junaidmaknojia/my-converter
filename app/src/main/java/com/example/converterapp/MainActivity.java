@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                         unitSelect = (String) adapterView.getItemAtPosition(i);
+                        Processor processor = new Processor(unitSelect, editText);
                     }
 
                     @Override
